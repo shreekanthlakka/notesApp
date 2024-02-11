@@ -2,8 +2,8 @@ const mongooes = require("mongoose");
 
 const notesSchema = new mongooes.Schema(
     {
-        title: { type: String, required: true },
-        description: { type: String, required: true },
+        title: { type: String },
+        description: { type: String },
     },
     { timeStamps: true }
 );

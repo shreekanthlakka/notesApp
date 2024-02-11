@@ -49,7 +49,7 @@ export async function updateNote(id, updatedData) {
     });
 
     if (!res.ok) {
-        throw new Error("Not able to delete Note");
+        throw new Error("Not able to update Note");
     }
 
     const data = await res.json();

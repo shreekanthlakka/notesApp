@@ -1,7 +1,9 @@
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 
 app.use(express.json());
+app.use(morgan("tiny")); // log requests to the console
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 exports.createNotes = asyncHandler(async (req, res, next) => {
     const { title, description } = req.body;
-    if (!description) {
+    if (!description && !title) {
         res.status(400).json({
             message: "Please provide title and description ",
         });
@@ -52,7 +52,6 @@ exports.deleteNotes = asyncHandler(async (req, res, next) => {
 exports.updateNotes = asyncHandler(async (req, res, next) => {
     const { description } = req.body;
     const { id } = req.params;
-    console.log("-------->", req.body);
 
     const noteFromDB = await Notes.findById(id);
     if (!noteFromDB) {
